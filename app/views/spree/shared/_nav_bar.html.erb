@@ -1,0 +1,18 @@
+<nav class="navbar col-md-8 col-sm-9" id="top-nav-bar">
+  <ul id="nav-bar" class="nav navbar-nav navbar-right" data-hook>
+    <li id="search-bar" data-hook>
+      <%= form_tag '/setup_current_store', method: :get, class: "navbar-form", id: "setup-store-theme" do %>
+        <div class="form-group">
+          <%= select_tag :store_id, options_from_collection_for_select(Spree::Store.all, :id, :name, current_store.id), 'aria-label' => 'Taxon', class: "form-control" %>
+  	    </div>
+  	  <% end %>
+    </li>
+  </ul>
+</nav>
+<script>
+	$(document).ready(function() {
+	  $('#setup-store-theme select').on('change', function() {
+		  $('#setup-store-theme').submit();
+	  });
+	})
+</script>

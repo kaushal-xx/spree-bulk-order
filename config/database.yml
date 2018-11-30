@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username:
+  password:
+  prepared_statements: false
+
+development:
+  <<: *default
+  database: spree_bulk_order_development
+
+test:
+  <<: *default
+  database: spree_bulk_order_test
+
+staging:
+  <<: *default
+  database: spree_bulk_order_staging
+
+production:
+  <<: *default
+  database: spree_bulk_order_release_production
+
