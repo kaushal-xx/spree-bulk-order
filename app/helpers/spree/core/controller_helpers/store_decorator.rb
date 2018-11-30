@@ -5,7 +5,7 @@ Spree::Core::ControllerHelpers::Store.class_eval do
       if @current_store.present?
       	@current_store
       else
-      	@current_store ||= Spree::Store.find_by_url(request.env['SERVER_NAME'])
+      	@current_store ||= Spree::Store.current(request.env['SERVER_NAME'])
       end
     end
 end
