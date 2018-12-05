@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   Spree::Core::Engine.add_routes do
     get 'setup_current_store', to: 'home#setup_current_store'
+    get 'store', to: 'home#store'
   end
 
 end

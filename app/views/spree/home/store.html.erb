@@ -1,0 +1,24 @@
+<% @body_id = 'home-page' %>
+<div data-hook="homepage_products">
+	<% Spree::Store.all.each do |store|%>
+		<div id="product_<%= store.id %>" class="col-md-3 col-sm-6 col-xs-6 product-list-item">
+		  <div class="panel panel-default">
+		     <div class="panel-body text-center product-body">
+		        <%= link_to "/setup_current_store?store_id=#{store.id}", itemprop: "url" do %>
+		          <%= image_tag "/assets/#{store.code}.png", itemprop: 'image', height: 150, width: 209 %><br/>
+		        <% end %>
+		        <br/>
+		      </div>
+		      <div class="panel-footer text-center">
+		        <span itemprop="offers">
+		          <span class="price selling lead" itemprop="price" content="">
+		            <%= store.name %>
+		          </span>
+		          <span itemprop="priceCurrency" content=""></span>
+		        </span>
+		    </div>
+		  </div>
+		</div>
+	<% end %>
+</div>
+
